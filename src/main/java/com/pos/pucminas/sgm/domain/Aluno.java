@@ -1,10 +1,6 @@
 package com.pos.pucminas.sgm.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -29,6 +25,9 @@ public class Aluno {
 	
 	@ManyToOne
 	private Endereco endereco;
+
+	@Enumerated(EnumType.STRING)
+	private Situacao situacao;
 	
 	public Aluno() {
 		
@@ -81,6 +80,14 @@ public class Aluno {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Situacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
 	}
 
 	@Override

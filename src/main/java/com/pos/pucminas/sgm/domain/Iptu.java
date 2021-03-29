@@ -1,9 +1,6 @@
 package com.pos.pucminas.sgm.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Iptu {
@@ -22,6 +19,8 @@ public class Iptu {
 	private String logradouro;
 	private String prorietario;
 	private String cpfCnpjProprietario;
+	@Enumerated(EnumType.STRING)
+	private Situacao situacao;
 	
 	public Iptu() {
 		
@@ -30,7 +29,7 @@ public class Iptu {
 
 	public Iptu(String inscricaoImobiliaria, String inscricaoFiscal, String subLote, Double totalExercio,
 			Long exercicio, Double valorVenal, Double valorImposto, Double taxaColetaLixo, String logradouro,
-			String prorietario, String cpfCnpjProprietario) {
+			String prorietario, String cpfCnpjProprietario, Situacao situacao) {
 		super();
 		this.inscricaoImobiliaria = inscricaoImobiliaria;
 		this.inscricaoFiscal = inscricaoFiscal;
@@ -43,6 +42,7 @@ public class Iptu {
 		this.logradouro = logradouro;
 		this.prorietario = prorietario;
 		this.cpfCnpjProprietario = cpfCnpjProprietario;
+		this.situacao = situacao;
 	}
 
 	public String getCpfCnpjProprietario() {
@@ -133,4 +133,11 @@ public class Iptu {
 		this.prorietario = prorietario;
 	}
 
+	public Situacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+	}
 }

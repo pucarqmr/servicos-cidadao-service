@@ -28,6 +28,11 @@ public class EscolaController {
 		return toCollectionDto(escolaService.listarTodas());
 	}
 
+	@GetMapping("/escolas-municipais")
+	public List<EscolaDto> listarEscolasMunicipais() {
+		return escolaService.listarEscolasMunicipais().stream().map(this::toDto).collect(Collectors.toList());
+	}
+
 	private EscolaDto toDto(Escola escola) {
 		return modelMapper.map(escola, EscolaDto.class);
 	}

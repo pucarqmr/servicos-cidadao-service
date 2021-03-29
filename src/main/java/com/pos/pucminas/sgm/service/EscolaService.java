@@ -2,7 +2,9 @@ package com.pos.pucminas.sgm.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.pos.pucminas.sgm.domain.TipoEscola;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,13 @@ public class EscolaService {
 		List<Escola> escolas = new ArrayList<>();
 		escolaRepository.findAll().forEach(escolas::add);
 		return escolas;
+	}
+
+	public List<Escola> listarEscolasMunicipais() {
+		return escolaRepository.findAll()
+				.stream()
+				.filter(tipo -> TipoEscola.MUNICIPAL.equals(tipo.getTipo()))
+				.collect(Collectors.toList());
 	}
 	
 

@@ -17,8 +17,6 @@ public class EscolaDto {
 	
 	private EnderecoDto endereco;
 	
-	private List<AlunoDto> alunos;
-
 	public Long getId() {
 		return id;
 	}
@@ -50,16 +48,5 @@ public class EscolaDto {
 	public void setEndereco(EnderecoDto endereco) {
 		this.endereco = endereco;
 	}
-
-	public List<AlunoDto> getAlunos() {
-		return alunos;
-	}
-
-	public void setAlunos(List<AlunoDto> alunos) {
-		this.alunos = alunos;
-	}
-	
-	
-	
 
 }

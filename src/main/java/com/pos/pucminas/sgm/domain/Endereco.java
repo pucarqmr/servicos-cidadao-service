@@ -24,6 +24,8 @@ public class Endereco {
 	@NotBlank
 	private String bairro;
 
+	private String complemento;
+
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +56,14 @@ public class Endereco {
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	@Override
